@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <!-- <form action="{% url 'search_function' %}" method="POST">
+        {% csrf_token %}
+        <h2>
+            search here
+        </h2>
+        <input type="search" name="search" placeholder="Search User Here..">
+        <input type="submit" class="submit">
+    </form> -->
+    <h1>This is home</h1>
+    
+    {% for i in data %}
+    <form action="{% url 'checkbox_user' i.id %}" method="post">
+        {% csrf_token %}
+    <input type="checkbox" groupname="check" name="filter" class="checkbox">
+    <input type="submit">
+   
+
+
+    <h3>{{i.fullname}}</h3>
+    <h2>{{i.email}}</h2>
+    <h2>{{i.phone}}</h2>
+    
+</form>
+
+    {% endfor %}
+
+    <h2>{{d.fullname}}</h2>
+    <h2>{{d.email}}</h2>
+    <h2>{{d.password}}</h2>
+
+    
+</body>
+</html>
